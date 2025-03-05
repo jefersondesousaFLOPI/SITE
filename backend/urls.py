@@ -1,0 +1,37 @@
+from django.contrib import admin
+from django.urls import path
+from .views import login_view, register_medico, register_paciente, register_exame, emitir_senha, painel_chamadas, imprimir_senha, chamar_senha_por_voz, gerar_relatorio, registrar_pagamento, historico_atendimentos, gerar_relatorio_pdf, gerar_relatorio_excel, reiniciar_senhas_diariamente, painel_tv, atender_senha, cancelar_senha, agendar_consulta, agendar_exame, caixa, confirmar_pagamento, gerenciar_menu_lateral, gerenciar_setores, listar_pacientes, listar_exames, listar_exames_concluidos, marcar_exame_entregue, relatorio_financeiro, dashboard
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('login/', login_view, name='login'),
+    path('register/medico/', register_medico, name='register_medico'),
+    path('register/paciente/', register_paciente, name='register_paciente'),
+    path('register/exame/', register_exame, name='register_exame'),
+    path('emitir_senha/', emitir_senha, name='emitir_senha'),
+    path('painel_chamadas/', painel_chamadas, name='painel_chamadas'),
+    path('imprimir_senha/<int:senha_id>/', imprimir_senha, name='imprimir_senha'),
+    path('chamar_senha_por_voz/<int:senha_id>/', chamar_senha_por_voz, name='chamar_senha_por_voz'),
+    path('gerar_relatorio/', gerar_relatorio, name='gerar_relatorio'),
+    path('registrar_pagamento/', registrar_pagamento, name='registrar_pagamento'),
+    path('historico_atendimentos/', historico_atendimentos, name='historico_atendimentos'),
+    path('gerar_relatorio_pdf/', gerar_relatorio_pdf, name='gerar_relatorio_pdf'),
+    path('gerar_relatorio_excel/', gerar_relatorio_excel, name='gerar_relatorio_excel'),
+    path('gerenciar_usuarios/', gerenciar_usuarios, name='gerenciar_usuarios'),
+    path('reiniciar_senhas/', reiniciar_senhas_diariamente, name='reiniciar_senhas'),
+    path('painel_tv/', painel_tv, name='painel_tv'),
+    path('atender_senha/<int:senha_id>/', atender_senha, name='atender_senha'),
+    path('cancelar_senha/<int:senha_id>/', cancelar_senha, name='cancelar_senha'),
+    path('agendar_consulta/', agendar_consulta, name='agendar_consulta'),
+    path('agendar_exame/', agendar_exame, name='agendar_exame'),
+    path('caixa/', caixa, name='caixa'),
+    path('confirmar_pagamento/<int:pagamento_id>/', confirmar_pagamento, name='confirmar_pagamento'),
+    path('gerenciar_menu_lateral/', gerenciar_menu_lateral, name='gerenciar_menu_lateral'),
+    path('gerenciar_setores/', gerenciar_setores, name='gerenciar_setores'),
+    path('listar_pacientes/', listar_pacientes, name='listar_pacientes'),
+    path('listar_exames/', listar_exames, name='listar_exames'),
+    path('listar_exames_concluidos/', listar_exames_concluidos, name='listar_exames_concluidos'),
+    path('marcar_exame_entregue/<int:exame_id>/', marcar_exame_entregue, name='marcar_exame_entregue'),
+    path('relatorio_financeiro/', relatorio_financeiro, name='relatorio_financeiro'),
+    path('dashboard/', dashboard, name='dashboard'),
+] 

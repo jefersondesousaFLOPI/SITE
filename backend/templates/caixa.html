@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa</title>
+</head>
+<body>
+    <h1>Caixa</h1>
+    <table>
+        <tr>
+            <th>Paciente</th>
+            <th>Valor</th>
+            <th>Data do Pagamento</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        {% for pagamento in pagamentos %}
+        <tr>
+            <td>{{ pagamento.agendamento.paciente.nome }}</td>
+            <td>{{ pagamento.valor }}</td>
+            <td>{{ pagamento.data_pagamento }}</td>
+            <td>{{ pagamento.status }}</td>
+            <td>
+                {% if pagamento.status == 'pendente' %}
+                    <a href="{% url 'confirmar_pagamento' pagamento.id %}">Confirmar Pagamento</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 

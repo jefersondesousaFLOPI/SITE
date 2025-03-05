@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Relatório</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            th {
+                display: none;
+            }
+            tr {
+                margin-bottom: 15px;
+            }
+            td {
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                padding-left: 10px;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+        .export-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .export-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerar Relatório</h1>
+    <button class="export-button" onclick="exportarRelatorio()">Exportar Relatório</button>
+    <table>
+        <tr>
+            <th>Data</th>
+            <th>Total de Atendimentos</th>
+            <th>Total de Receitas</th>
+        </tr>
+        {% for relatorio in relatorios %}
+        <tr>
+            <td data-label="Data">{{ relatorio.data }}</td>
+            <td data-label="Total de Atendimentos">{{ relatorio.total_atendimentos }}</td>
+            <td data-label="Total de Receitas">{{ relatorio.total_receitas }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <script>
+        function exportarRelatorio() {
+            // Lógica para exportar o relatório (PDF/Excel)
+            alert('Função de exportação ainda não implementada.');
+        }
+    </script>
+</body>
+</html> 

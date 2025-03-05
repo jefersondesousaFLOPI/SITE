@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Chamadas</title>
+</head>
+<body>
+    <h1>Painel de Chamadas</h1>
+    <table>
+        <tr>
+            <th>Tipo</th>
+            <th>Número</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        {% for senha in senhas %}
+        <tr>
+            <td>{{ senha.tipo }}</td>
+            <td>{{ senha.numero }}</td>
+            <td>{{ senha.status }}</td>
+            <td>
+                <a href="{% url 'atender_senha' senha.id %}">Atender</a> |
+                <a href="{% url 'cancelar_senha' senha.id %}">Cancelar</a> |
+                <a href="{% url 'chamar_senha_por_voz' senha.id %}">Chamar por Voz</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 

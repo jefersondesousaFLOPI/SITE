@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Exame</title>
+</head>
+<body>
+    <h1>Cadastro de Exame</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required>
+        <br>
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" required>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html> 

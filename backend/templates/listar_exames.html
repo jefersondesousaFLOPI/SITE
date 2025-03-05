@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Exames</title>
+</head>
+<body>
+    <h1>Listar Exames</h1>
+    <form method="GET">
+        <label for="nome">Nome do Paciente:</label>
+        <input type="text" id="nome" name="nome">
+        <button type="submit">Filtrar</button>
+    </form>
+    <table>
+        <tr>
+            <th>Paciente</th>
+            <th>Médico</th>
+            <th>Data e Hora</th>
+        </tr>
+        {% for exame in exames %}
+        <tr>
+            <td>{{ exame.paciente.nome }}</td>
+            <td>{{ exame.medico.nome }}</td>
+            <td>{{ exame.data_hora }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 

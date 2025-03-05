@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Setores</title>
+</head>
+<body>
+    <h1>Gerenciar Setores</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Nome do Setor</th>
+                <th>Contador</th>
+            </tr>
+            {% for setor in setores %}
+            <tr>
+                <td>{{ setor.nome }}</td>
+                <td><input type="number" name="contador_{{ setor.id }}" value="{{ setor.contador }}"></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html> 

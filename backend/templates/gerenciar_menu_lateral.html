@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Menu Lateral</title>
+</head>
+<body>
+    <h1>Gerenciar Menu Lateral</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Ativo</th>
+            </tr>
+            {% for menu in menus %}
+            <tr>
+                <td>{{ menu.nome }}</td>
+                <td><input type="checkbox" name="menu_{{ menu.id }}" {% if menu.ativo %}checked{% endif %}></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html> 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Consulta</title>
+</head>
+<body>
+    <h1>Agendar Consulta</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="paciente_id">Paciente:</label>
+        <select name="paciente_id">
+            {% for paciente in pacientes %}
+            <option value="{{ paciente.id }}">{{ paciente.nome }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="medico_id">Médico:</label>
+        <select name="medico_id">
+            {% for medico in medicos %}
+            <option value="{{ medico.id }}">{{ medico.nome }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="data_hora">Data e Hora:</label>
+        <input type="datetime-local" name="data_hora" required>
+        <br>
+        <button type="submit">Agendar</button>
+    </form>
+</body>
+</html> 

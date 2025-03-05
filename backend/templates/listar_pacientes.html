@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Pacientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listar Pacientes</h1>
+    <form method="GET">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome">
+        <label for="medico_id">Médico:</label>
+        <select id="medico_id" name="medico_id">
+            <option value="">-- Selecione --</option>
+            {% for medico in medicos %}
+                <option value="{{ medico.id }}">{{ medico.nome }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Convênio</th>
+        </tr>
+        {% for paciente in pacientes %}
+        <tr>
+            <td>{{ paciente.nome }}</td>
+            <td>{{ paciente.data_nascimento }}</td>
+            <td>{{ paciente.convenio }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emitir Senha</title>
+</head>
+<body>
+    <h1>Emitir Senha</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="tipo">Tipo:</label>
+        <select name="tipo">
+            <option value="NORMAL">NORMAL</option>
+            <option value="PRIORITÁRIO">PRIORITÁRIO</option>
+            <option value="LABORATÓRIO">LABORATÓRIO</option>
+            <option value="EXAMES">EXAMES</option>
+        </select>
+        <br>
+        <button type="submit">Emitir</button>
+    </form>
+</body>
+</html> 

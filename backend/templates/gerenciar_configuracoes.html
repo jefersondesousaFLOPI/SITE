@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Configurações</title>
+</head>
+<body>
+    <h1>Gerenciar Configurações da Clínica</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nome">Nome da Clínica:</label>
+        <input type="text" id="nome" name="nome" value="{{ configuracao.nome }}" required>
+        <br>
+        <label for="logo_url">URL do Logo:</label>
+        <input type="url" id="logo_url" name="logo_url" value="{{ configuracao.logo_url }}">
+        <br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html> 

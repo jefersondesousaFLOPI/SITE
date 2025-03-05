@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Atendimentos</title>
+</head>
+<body>
+    <h1>Histórico de Atendimentos</h1>
+    <table>
+        <tr>
+            <th>Paciente</th>
+            <th>Médico</th>
+            <th>Data do Atendimento</th>
+            <th>Tipo de Exame</th>
+            <th>Observações</th>
+        </tr>
+        {% for atendimento in atendimentos %}
+        <tr>
+            <td>{{ atendimento.paciente.nome }}</td>
+            <td>{{ atendimento.medico.nome }}</td>
+            <td>{{ atendimento.data_atendimento }}</td>
+            <td>{{ atendimento.tipo_exame }}</td>
+            <td>{{ atendimento.observacoes }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 

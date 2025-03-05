@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Exames Concluídos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listar Exames Concluídos</h1>
+    <form method="GET">
+        <label for="nome">Nome do Paciente:</label>
+        <input type="text" id="nome" name="nome">
+        <button type="submit">Filtrar</button>
+    </form>
+    <table>
+        <tr>
+            <th>Paciente</th>
+            <th>Médico</th>
+            <th>Data e Hora</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+        {% for exame in exames_concluidos %}
+        <tr>
+            <td>{{ exame.paciente.nome }}</td>
+            <td>{{ exame.medico.nome }}</td>
+            <td>{{ exame.data_hora }}</td>
+            <td>{{ exame.paciente.telefone }}</td>
+            <td><a href="{% url 'marcar_exame_entregue' exame.id %}">Marcar como Entregue</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 
